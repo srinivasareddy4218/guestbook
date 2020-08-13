@@ -5,7 +5,7 @@ node{
     }
 	
 	stage('checking files'){
-	  sh "ls -lart"
+	  sh "whoami"
 		
 	}
     
