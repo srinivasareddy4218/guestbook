@@ -4,7 +4,7 @@ node{
         git credentialsId: 'GIT_CREDENTIALSS', url: 'https://github.com/manikarnam/guestbook.git', branch: 'master'
     }
 	
-	stage('checking files'){
+	stage('Whoami'){
 	  sh "whoami"
 		
 	}
