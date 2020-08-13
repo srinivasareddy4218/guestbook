@@ -3,6 +3,11 @@ node{
     stage('SCM Checkout'){
         git credentialsId: 'GIT_CREDENTIALSS', url: 'https://github.com/manikarnam/guestbook.git', branch: 'master'
     }
+	
+	stage('checking files'){
+	  sh "ls -lart"
+		
+	}
     
     /**stage('Build Docker Image'){
 	    sh "sudo docker build -t maniengg/spring-boot-mongo:${BUILD_ID} ."
