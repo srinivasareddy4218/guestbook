@@ -9,15 +9,17 @@ node{
 		
 	}
     
-    /**stage('Build Docker Image'){
-	    sh "sudo docker build -t maniengg/spring-boot-mongo:${BUILD_ID} ."
+    stage('Build Docker Image'){
+	    sh "sudo docker build -t maniengg/php-redis:${BUILD_ID} /php-redis/"
+	    sh "sudo docker build -t maniengg/redis-follower:${BUILD_ID} /redis-follower/"
     }
     
     stage('Push Docker Image'){
         withCredentials([string(credentialsId: 'DOKCER_HUB_PASSWORD', variable: 'DOKCER_HUB_PASSWORD')]) {
           sh "sudo docker login -u maniengg -p ${DOKCER_HUB_PASSWORD}"
         }
-        sh "sudo docker push maniengg/spring-boot-mongo:${BUILD_ID}"
+        sh "sudo docker push php-redis:${BUILD_ID}"
+	sh "sudo docker push redis-follower:${BUILD_ID}"
      }
      
     /** stage("Deploy To Kuberates Cluster"){
