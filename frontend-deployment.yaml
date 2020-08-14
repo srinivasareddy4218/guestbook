@@ -18,6 +18,7 @@ spec:
       containers:
       - name: php-redis
         image: maniengg/php-redis:latest
+        imagePullPolicy: Always
         env:
         - name: GET_HOSTS_FROM
           value: "dns"
