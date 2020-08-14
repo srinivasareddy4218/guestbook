@@ -10,8 +10,8 @@ node{
 	}
     
     stage('Build Docker Image'){
-	    sh "sudo docker build -t maniengg/php-redis:${BUILD_ID} /php-redis/"
-	    sh "sudo docker build -t maniengg/redis-follower:${BUILD_ID} /redis-follower/"
+	    sh "sudo docker build -t maniengg/php-redis:${BUILD_ID} php-redis/"
+	    sh "sudo docker build -t maniengg/redis-follower:${BUILD_ID} redis-follower/"
     }
     
     stage('Push Docker Image'){
