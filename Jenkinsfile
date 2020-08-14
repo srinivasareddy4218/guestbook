@@ -20,8 +20,8 @@ node{
         withCredentials([string(credentialsId: 'DOKCER_HUB_PASSWORD', variable: 'DOKCER_HUB_PASSWORD')]) {
           sh "sudo docker login -u maniengg -p ${DOKCER_HUB_PASSWORD}"
         }
-        sh "sudo docker push php-redis:${BUILD_ID}"
-	sh "sudo docker push redis-follower:${BUILD_ID}"
+        sh "sudo docker push maniengg/php-redis:${BUILD_ID}"
+	sh "sudo docker push maniengg/redis-follower:${BUILD_ID}"
      }
      
     /** stage("Deploy To Kuberates Cluster"){
