@@ -1,25 +1,33 @@
 <html ng-app="redis">
-  <head>
-    <title>Miracle Guestbook</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js"></script>
-    <script src="controllers.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.0/ui-bootstrap-tpls.js"></script>
-  </head>
-  <body ng-controller="RedisCtrl">
-    <div style="width: 50%; margin-left: 20px">
-      <h2>Miracle Guestbook</h2>
-    <form>
-    <fieldset>
-    <input ng-model="msg" placeholder="Messages" class="form-control" type="text" name="input"><br>
-    <button type="button" class="btn btn-primary" ng-click="controller.onRedis()">Submit</button>
-    </fieldset>
-    </form>
-    <div>
-      <div ng-repeat="msg in messages track by $index">
-        {{msg}}
+    <head>
+      <title>Miracle Sample Guestbook Application </title>
+      <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js"></script>
+      <script src="controllers.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.0/ui-bootstrap-tpls.js"></script>
+    </head>
+    <body ng-controller="RedisCtrl">
+        <div id="logo">
+            <a href="../../../" class="standard-logo" data-dark-logo="https://d2b8lqy494c4mo.cloudfront.net/mss/images/miracle-logo-01.svg" width="150px" height="70px"><img src="https://d2b8lqy494c4mo.cloudfront.net/mss/images/miracle-logo-01.svg" width="150px" height="70px"alt="Miracle Logo" style=" margin-left:25px; margin-top: -4px;"></a>
+            <!--	<a href="index.html" class="standard-logo" data-dark-logo="images/newHeader/miracle-logo.svg"  width="150px" height="70px"><img src="../NewFolder/miracle-logo.svg" width="150px" height="70px" alt="Miracle Logo" style="margin-left:15px;"></a>-->
+        </div>
+
+    
+        
+      <div style="width: 50%; margin-left: 250px" class="btn btn-primary btn-lg "  >
+        <h2>Miracle Sample Guestbook Application </h2>
+      <form>
+      <fieldset>
+      <input ng-model="msg" placeholder="Messages" class="form-control" type="text" name="input"><br>
+      <button type="button" class=" btn style="background-color: #e3f2fd  ng-click="controller.onRedis()">Submit</button>
+      </fieldset>
+
+
+      </form>
+      <div>
+        <div ng-repeat="msg in messages track by $index">
+          {{msg}}
+        </div>
       </div>
-    </div>
-    </div>
-  </body>
-</html>
+      </div>
+    </body>
