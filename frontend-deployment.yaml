@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: frontend
-  namespace: mss
+  namespace: mssdevops
 spec:
   replicas: 1
   selector:
