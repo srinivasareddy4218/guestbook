@@ -38,7 +38,7 @@ pipeline {
                   sshagent(credentials : ['sshkey']) {
                       //sh "sudo scp -o StrictHostKeyChecking=no frontend-deployment.yaml cloud_user@40.117.94.170:/home/cloud_user"
                       
-                         sh 'ssh -t -t root@40.117.94.170 -o StrictHostKeyChecking=no'
+                         sh 'ssh -t -t azureuser@40.117.94.170 -o StrictHostKeyChecking=no'
                       
             
                      }                                      
