@@ -15,19 +15,24 @@ pipeline {
              }
          }
          stage('Build Docker Image'){
+		 steps {
 	    sh "sudo docker build -t srinivasareddy4218/php-redis:latest php-redis/"
-    }
+           }
+	 }		 
     stage('Build redis Docker image'){
+	    steps{
 	    sh "sudo docker build -t srinivasareddy4218/redis-follower:latest redis-follower/"
     }
-    
+    }
     stage('Push Docker Image'){
+	    steps {
         withCredentials([string(credentialsId: 'sree-docker', variable: 'sample')]) {
           sh "sudo docker login -u srinivasareddy4218 -p ${sample}"
         }
         sh "sudo docker push srinivasareddy4218/php-redis:latest"
 	     sh "sudo docker push srinivasareddy4218/redis-follower:latest"
      }
+    }	    
          stage('Deploy to k8s') {
              steps {
                   sshagent(credentials : ['sshkey']) {
