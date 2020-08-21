@@ -37,6 +37,7 @@ pipeline {
              steps {
                   sshagent(credentials : ['sshkey']) {
                       sh " scp -o StrictHostKeyChecking=no  /var/lib/jenkins/workspace/guestbook/frontend-deployment.yaml azureuser@40.117.94.170:/home/azureuser"
+			  sh " ls -la"
                          script{
                              try{
                               sh "ssh azureuser@40.117.94.170 kubectl apply -f ."
