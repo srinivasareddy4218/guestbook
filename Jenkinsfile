@@ -43,9 +43,9 @@ pipeline {
 			// sh "kubectl apply -f frontend-deployment.yaml  azureuser@40.117.94.170:/home/azureuser"
 			  script{
                              try{
-                              sh "ssh azureuser@40.117.94.170 kubectl apply -f . && whoami"
+                              sh "ssh root@40.117.94.170 kubectl apply -f . && whoami"
                              }catch (error){
-                               sh "ssh azureuser@40.117.94.170 kubectl create -f ."
+                               sh "ssh root@40.117.94.170 kubectl create -f ."
 			  
 			     }
 			  }
