@@ -40,10 +40,15 @@ pipeline {
                       
                          sh "ssh -t azureuser@40.117.94.170 -o StrictHostKeyChecking=no"
 			 sh " scp -o StrictHostKeyChecking=no frontend-deployment.yaml azureuser@40.117.94.170:/home/azureuser && ls -lart && pwd"
-			 sh "kubectl apply -f frontend-deployment.yaml  azureuser@40.117.94.170:/home/azureuser"
+			// sh "kubectl apply -f frontend-deployment.yaml  azureuser@40.117.94.170:/home/azureuser"
+			  script{
+                             try{
+                              sh "azureuser@40.117.94.170 kubectl apply -f /home/azureuser"
+                             }catch (error){
+                               sh "azureuser@40.117.94.170 kubectl create -f /home/azureuser"
 			  
-                      
-            
+			     }
+			  }
                      }                                      
                         
             }
