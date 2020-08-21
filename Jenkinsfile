@@ -38,14 +38,14 @@ pipeline {
                   sshagent(credentials : ['azureuser']) {
                       //sh "sudo scp -o StrictHostKeyChecking=no frontend-deployment.yaml cloud_user@40.117.94.170:/home/cloud_user"
                       
-                         sh "ssh -t azureuser@40.117.94.170 -o StrictHostKeyChecking=no"
+                         sh "ssh -t -t azureuser@40.117.94.170 -o StrictHostKeyChecking=no"
 			 sh " scp -o StrictHostKeyChecking=no frontend-deployment.yaml azureuser@40.117.94.170:/home/azureuser && ls -lart && pwd"
 			// sh "kubectl apply -f frontend-deployment.yaml  azureuser@40.117.94.170:/home/azureuser"
 			  script{
                              try{
-                              sh "ssh azureuser@40.117.94.170 kubectl apply -f . && whoami"
+                              sh "ssh -t -t azureuser@40.117.94.170 kubectl apply -f . && whoami"
                              }catch (error){
-                               sh "ssh azureuser@40.117.94.170 kubectl create -f ."
+                               sh "ssh -t -t azureuser@40.117.94.170 kubectl create -f ."
 			  
 			     }
 			  }
