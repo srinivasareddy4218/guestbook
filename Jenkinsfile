@@ -36,7 +36,7 @@ pipeline {
          stage('Deploy to k8s') {
              steps {
                   sshagent(credentials : ['sshkey']) {
-                      sh " scp -o StrictHostKeyChecking=no  frontend-deployment.yaml azureuser@40.117.94.170:/home/azureuser"
+                      sh " scp -o StrictHostKeyChecking=no frontend-deployment.yaml azureuser@40.117.94.170:/home/azureuser"
 			  sh " ls -la"
                          script{
                              try{
