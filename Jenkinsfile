@@ -35,8 +35,8 @@ pipeline {
     }	    
          stage('Deploy to k8s') {
              steps {
-                  sshagent(credentials : ['sshkey']) {
-                      sh "sudo scp -o StrictHostKeyChecking=no frontend-deployment.yaml cloud_user@40.117.94.170:/home/cloud_user"
+                  sshagent(credentials : ['azureuser']) {
+                      sh "sudo scp -o StrictHostKeyChecking=no frontend-deployment.yaml azureuser@40.117.94.170:/home/azureuser"
                         script{
                              try{
                               sh "kubectl apply -f ."
