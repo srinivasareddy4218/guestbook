@@ -36,13 +36,12 @@ pipeline {
          stage('Deploy to k8s') {
              steps {
                   sshagent(credentials : ['sshkey']) {
-                      //sh " scp -o StrictHostKeyChecking=no frontend-deployment.yaml azureuser@40.117.94.170:/home/azureuser"
-			 // sh " ls -la"
-                         script{
+                      sh " scp -o StrictHostKeyChecking=no frontend-deployment.yaml azureuser@40.117.94.170:/home/azureuser/k8stasks"
+                        script{
                              try{
-                              sh "kubectl apply -f frontend-deployment.yaml"
+                              sh "kubectl apply -f ."
                              }catch (error){
-                               sh "kubectl create -f frontend-deployment.yaml"
+                               sh "kubectl create -f ."
                          //sh "whoami && pwd"
                          //sh 'ssh -t -t azureuser@40.117.94.170 -o StrictHostKeyChecking=no'
                          //sh "ls -la"
