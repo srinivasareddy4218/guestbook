@@ -40,9 +40,9 @@ pipeline {
 			 // sh " ls -la"
                          script{
                              try{
-                              sh "ssh azureuser@40.117.94.170 kubectl apply -f frontend-deployment.yaml"
+                              sh "kubectl apply -f frontend-deployment.yaml"
                              }catch (error){
-                               sh "ssh azureuser@40.117.94.170 kubectl create -f frontend-deployment.yaml "
+                               sh "kubectl create -f frontend-deployment.yaml"
                          //sh "whoami && pwd"
                          //sh 'ssh -t -t azureuser@40.117.94.170 -o StrictHostKeyChecking=no'
                          //sh "ls -la"
