@@ -39,7 +39,7 @@ pipeline {
                       //sh "sudo scp -o StrictHostKeyChecking=no frontend-deployment.yaml cloud_user@40.117.94.170:/home/cloud_user"
                       
                          sh "ssh -t azureuser@40.117.94.170 -o StrictHostKeyChecking=no"
-			 sh " scp -o StrictHostKeyChecking=no git clone https://github.com/manikarnam/guestbook.git azureuser@40.117.94.170:/home/azureuser && ls -lart && pwd"
+			 sh " scp -o StrictHostKeyChecking=no frontend-deployment.yaml azureuser@40.117.94.170:/home/azureuser && ls -lart && pwd"
 			  
                       
             
