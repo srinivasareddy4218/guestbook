@@ -8,9 +8,12 @@ metadata:
     role: follower
     tier: backend
 spec:
+  type: NodePort
   ports:
     # the port that this service should serve on
   - port: 6379
+    targetPort: 6379
+    nodePort: 32064
   selector:
     app: redis
     role: follower
